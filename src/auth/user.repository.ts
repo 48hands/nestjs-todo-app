@@ -7,14 +7,10 @@ import {
   InternalServerErrorException,
 } from '@nestjs/common';
 
-// @EntityRepository(User)
 export interface UserRepository {
   signUp(authCredentialsDto): Promise<void>;
-
   validateUserPassword(authCredentialsDto: AuthCredentialsDto): Promise<string>;
 }
-
-// export class HogeUserRepository extends Repository<User>
 
 @EntityRepository(User)
 export class UserRepositoryImpl extends Repository<User>
